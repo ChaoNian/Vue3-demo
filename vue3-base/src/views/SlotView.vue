@@ -27,12 +27,16 @@
 
 <script setup lang="ts">
  import { inject, ref } from "vue";
- import {myInjectionKey} from './key.js'
+ import {myInjectionKey} from './key'
 const text = ref('子组件的text')
+console.log(myInjectionKey, 'myInjectionKey');
+
 
 const {count, injFun} = inject('message') as any
 // console.log(count, 'message');
 const messag1e = inject('message', () => '', true)
-const count1 = inject('onlyData')
+const count1 = inject('onlyData') as any
 const aa = inject(myInjectionKey)
+// console.log(aa);
+
 </script>

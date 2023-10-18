@@ -2,7 +2,8 @@
   "files": [],
   "compilerOptions": {
     "strict": true,
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "allowImportingTsExtensions": false
   },
   "references": [
     {
