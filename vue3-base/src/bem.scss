@@ -1,0 +1,92 @@
+// bem 架构是一种css架构 oocss 实现的一种 （面向对象css） ，BEM实际上是block、element、modifier的缩写，分别为块层、元素层、修饰符层，element UI 也使用的是这种架构
+
+/*
+ BEM 命名约定的模式是：
+.block {}
+.block__element {}
+ 
+.block--modifier {}
+*/
+
+
+// 使用sass 最小单元复刻一个bem 架构
+// $block-sel: "-" !default; // 定义变量
+// $element-sel: "__" !default;
+// $modifier-sel: "--" !default;
+// $namespace:'xm' !default;
+// @mixin bfc {
+//     height: 100%;
+//     overflow: hidden;
+// }
+ 
+ 
+// @mixin flex {
+//     display: flex;
+// }
+ 
+// @mixin e($element) {
+//     $selector:&;
+//     @at-root { // 花括号内的样式前不会拼接父级样式名， 如果没有@at-root 会拼接父级样式名，使得重复拼接父类名
+//         #{$selector + $element-sel + $element} { // 拼接样式名
+//             @content; // 占位符
+//         }
+//     }
+// }
+ 
+// @mixin m($modifier) {
+//     $selector:&;
+//     @at-root {
+//         #{$selector + $modifier-sel + $modifier} {
+//             @content;
+//         }
+//     }
+// }
+
+
+/*
+block
+*/
+$namespace: "yuki" !default;
+$block-sel:"-" !default;
+$element-sel:"__"!default;
+$modifier-sel:"--"!default;
+
+@mixin b($block) {
+    // <div class= 'yuki-block'>
+    $B:#{$namespace + $block-sel + $block}; // 命中在业务中DOM写的class名
+    .#{$B}{// 命中之后初始化样式
+        @content; // .yuki-block写的样式覆盖此处
+    }
+}
+
+
+/*
+element
+mixin生成 .yuki-block__inner {...}
+*/
+@mixin e($el) {
+   $selector:&; // 获取父类名 yuki-block
+   @at-root{ // 不写@at-root 就会生成 .yuki-block .yuki-block__inner {...}
+    #{$selector + $element-sel + $el} {
+        @content; // 生成的类定义的样式
+    }
+   }
+}
+//  modifier
+@mixin m($m) {
+    $selector:&; // 获取父类名 yuki-block
+    @at-root{ // 不写@at-root 就会生成 .yuki-block .yuki-block__inner {...}
+     #{$selector + $modifier-sel + $m} {
+         @content; // 生成的类定义的样式
+     }
+    }
+ }
+//  想要项目全局使用， 需要在vite.config.js 进行配置此文件
+// css:{
+//     preprocessorOptions:{
+//       scss:{
+//         // additionalData:`@import "@/assets/main.scss";`
+//         additionalData:`@import "./src/bem.scss";`
+//       }
+//     }
+//   },

@@ -43,11 +43,14 @@ provide(/*注入名 */ myInjectionKey, count)
       </nav>
     </div>
   </header>
-
+  <div class="yuki-test">测试全局样式配置DEM 样式架构
+    <div class="yuki-test__inner">wew </div>
+    <div class="yuki-test--success">sdsd</div>
+  </div>
   <RouterView />
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 header {
   line-height: 1.5;
   max-height: 100vh;
@@ -107,6 +110,17 @@ nav a:first-of-type {
 
     padding: 1rem 0;
     margin-top: 1rem;
+  }
+}
+
+// bem架构
+@include b(test) {
+  color:red;
+  @include e(inner){
+    color: blue;
+  }
+  @include m(success) {
+    color: green;
   }
 }
 </style>
