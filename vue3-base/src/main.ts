@@ -7,6 +7,7 @@ import App from './App.vue'
 import router from './router'
 // import TodoDeleteButton from './components/icons'
 
+
 /**
  * 大多数真实的应用都是由一棵嵌套的、可重用的组件树组成的
  */
@@ -18,6 +19,22 @@ import router from './router'
 
 // 我们传入 createApp 的对象实际上是一个组件（App 是单文件组件），每个应用都需要一个“根组件”，其他组件将作为其子组件。
 const app = createApp(App)
+
+
+
+// 全局组件批量注册 那element Ui 的icon为例
+// import * as ElementPlusIconsVue from '@element-plus/icons-vue'
+// const ElementPlusIconsVue = {}
+// for (const [key, component] of Object.entries(ElementPlusIconsVue)) {
+//    app.component(key, component)
+// }
+/**
+ * 补充：Object.entrie（object）
+ * Object.entries() 返回一个数组，其元素是直接在 object 上找到相应的可枚举字符串键属性的键值对数组；
+ * 这与使用 for...in 循环迭代相同，只是使用 for...in 循环也枚举原型链中的属性。Object.entries() 返回的数组顺序和 for...in 循环提供的顺序相同。
+ * 如果只需要属性的键，请使用 Object.keys()。如果只需要属性的值，请使用 Object.values()。
+
+ */
 
 app.use(createPinia())
 app.use(router)

@@ -3,7 +3,15 @@
   "compilerOptions": {
     "strict": true,
     "noImplicitAny": true,
-    "allowImportingTsExtensions": false
+    "allowImportingTsExtensions": false,
+    "types": [
+      "unplugin-vue-define-options/macros-global"
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
   },
   "references": [
     {
