@@ -39,6 +39,7 @@ provide(/*注入名 */ myInjectionKey, count)
           默认的插槽出口
         </RouterLink>
         <RouterLink to="/AsyncCompetent">异步组件 </RouterLink>
+        <RouterLink to="/DynamicsComponent">动态组件 </RouterLink>
       </nav>
     </div>
   </header>

@@ -6,6 +6,9 @@
         {{item.name}}
         </div>
         <Tree v-if='item?.children?.length' :data="item.children"></Tree>
+        <!-- 补充；tem?.children?.length' ？ 可选链操作符， 没有找到属性就会返回undefined 
+            结合 ?? 双问号表达式一起使用， xxx?.a ?? 0, 如果xxx?.a 返回undefined 或者null（只处理undefined 或者null）， 就会返回？？右边的 0
+        -->
         <!-- <ASTree @click.stop='clickItem' v-if='item?.children?.length' :data="item.children"></ASTree> -->
     </div>
   </div>
