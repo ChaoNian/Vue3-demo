@@ -1,6 +1,6 @@
 <template>
 
- <div class="box">A组件</div>
+ <div class="box">c  组件------</div>
 
 </template>
 <script setup lang='ts'>
@@ -11,5 +11,4 @@
     border: 1px solid #ccc;
     padding: 100px;
 }
-
 </style>

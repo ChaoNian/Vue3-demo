@@ -1,11 +1,14 @@
 <template>
 
- <div>B 组件</div>
+ <div class="box">B -----组件</div>
 
 </template>
 <script setup lang='ts'>
 
 </script>
-<style scoped>
-
+<style scoped lang="scss">
+.box{
+    border: 1px solid #ccc;
+    padding: 100px;
+}
 </style>

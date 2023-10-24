@@ -1,5 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
-
+import DefineOptions from 'unplugin-vue-define-options/vite'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueJsx from '@vitejs/plugin-vue-jsx'
@@ -10,6 +10,7 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 export default defineConfig({
   plugins: [
     vue(),
+    DefineOptions(),
     vueJsx(),
   ],
   css:{
