@@ -27,10 +27,13 @@
   <br>
   <watchCom></watchCom>
   <br>
+  <br>
+    <TeleportV></TeleportV>
  
 </template>
 <script setup lang="ts">
 import {onMounted, ref, watchEffect, computed} from 'vue'
+import TeleportV from './Teleport.vue'
 import SlotView from './SlotView.vue';
 import toXXVue from './to系列.vue';
 import Computed from './computed.vue'

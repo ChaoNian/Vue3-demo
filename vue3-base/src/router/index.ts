@@ -48,6 +48,12 @@ const router = createRouter({
       // which is lazy-loaded when the route is visited.
       component: () => import('../views/skeletonAndasyncCom/index.vue')
     },
+    {
+      path: '/Transition',
+      name: 'Transition',
+      component: () => import('../views/transition.vue')
+    },
+    
     
   ]
 })
