@@ -25,7 +25,7 @@
       </transition> -->
 
       <!-- transition 8个 生命周期 -->
-      <transition 
+      <!-- <transition 
         @before-enter="EnterFrom"
         @enter="EnterActive"
         @after-enter="EnterTo"
@@ -34,6 +34,13 @@
         @leave="LeaveActive"
         @after-leave="LeaveTo"
         @leave-cancelled="LeaveCancel" >
+        <div v-if="flag" class="box"></div> 
+      </transition> -->
+     <transition 
+        @before-enter="EnterFrom"
+        @enter="EnterActive"
+      
+        @leave="Leave" >
         <div v-if="flag" class="box"></div> 
       </transition>
 
@@ -44,56 +51,72 @@
 <script setup lang='ts'>
 import{ref} from 'vue'
 // import 'animate.css'
-// import gsap from 'gsap'
+import gsap from 'gsap'
 
 const flag = ref<boolean>(true)
 
 // el DOM 节点
 const EnterFrom = (el:Element) => {
     // console.log(el, '动画进入之前EnterFrom');
+    gsap.set(el, {
+        width:0,
+        height:0
+    })
     
 }
 // done 动画过度执行，默认执行
-const EnterActive = (el:Element, done:Function) => {
+const EnterActive = (el:Element, done: gsap.Callback) => {
     // console.log(el,'过度曲线 EnterActive');
-    setTimeout(() => {
-        done() // 3s后执行过度完成 EnterTo函数
-    }, 3000)
-    
+    // setTimeout(() => {
+    //     done() // 3s后执行过度完成 EnterTo函数
+    // }, 3000)
+    gsap.to(el, {
+        width: 200,
+        height: 200,
+        onComplete: done
+    })
 }
 
-const EnterTo = (el:Element) => {
-    // console.log(el,'动画进入之后 EnterTo');
+// const EnterTo = (el:Element) => {
+//     // console.log(el,'动画进入之后 EnterTo');
     
-}
-const EnterCancel = (el:Element) => {
-    console.log(el,'动画进过度效果 被打断时 EnterCancel');
-}
+// }
+// const EnterCancel = (el:Element) => {
+//     console.log(el,'动画进过度效果 被打断时 EnterCancel');
+// }
 
 // 离开
 
 // el DOM 节点
-const LeaveFrom = (el:Element) => {
-    // console.log(el, '动画离开之前LeaveFrom');
+// const LeaveFrom = (el:Element) => {
+//     // console.log(el, '动画离开之前LeaveFrom');
     
-}
+// }
 // done 动画过度执行，默认执行
-const LeaveActive = (el:Element, done:Function) => {
-    // console.log(el,'过度曲线 LeaveActive');
-    // setTimeout(() => {
-    //     done() // 3s后执行过度完成 EnterTo函数
-    // }, 3000)
-    done()
+// const LeaveActive = (el:Element, done:Function) => {
+//     // console.log(el,'过度曲线 LeaveActive');
+//     // setTimeout(() => {
+//     //     done() // 3s后执行过度完成 EnterTo函数
+//     // }, 3000)
+//     done()
     
+// }
+
+const Leave  = (el:Element, done:gsap.Callback) => {
+    gsap.to(el, {
+        width: 0,
+        height: 0,
+        onComplete: done
+    })
 }
 
-const LeaveTo = (el:Element) => {
-    // console.log(el,'动画离开之后 LeaveTo');
+// const LeaveTo = (el:Element) => {
+//     // console.log(el,'动画离开之后 LeaveTo');
     
-}
-const LeaveCancel = (el:Element) => {
-    console.log(el,'动画离开过度效果 被打断时------');
-}
+// }
+// const LeaveCancel = (el:Element) => {
+//     console.log(el,'动画离开过度效果 被打断时------');
+// }
 
 </script>
 <style scoped lang="scss">
