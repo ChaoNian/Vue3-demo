@@ -17,11 +17,24 @@
     </transition> -->
     <!-- 结合第三方类库 animate.css 来使用 -->
     <!-- duration: 动画时长,值有一个值或对象：number｜{enter:number, leave:number} -->
-      <transition 
+      <!-- <transition 
        :duration="1000"
         enter-active-class="animate__animated animate__flipInX"
         leave-active-class="animate__animated animate__fadeOutDown">
-        <div v-if="flag" class="box"></div>
+        <div v-if="flag" class="box"></div> 
+      </transition> -->
+
+      <!-- transition 8个 生命周期 -->
+      <transition 
+        @before-enter="EnterFrom"
+        @enter="EnterActive"
+        @after-enter="EnterTo"
+        @enter-cancelled="EnterCancel"
+        @before-leave="LeaveFrom"
+        @leave="LeaveActive"
+        @after-leave="LeaveTo"
+        @leave-cancelled="LeaveCancel" >
+        <div v-if="flag" class="box"></div> 
       </transition>
 
    </div>
@@ -30,8 +43,57 @@
 </template>
 <script setup lang='ts'>
 import{ref} from 'vue'
-import 'animate.css'
+// import 'animate.css'
+// import gsap from 'gsap'
+
 const flag = ref<boolean>(true)
+
+// el DOM 节点
+const EnterFrom = (el:Element) => {
+    // console.log(el, '动画进入之前EnterFrom');
+    
+}
+// done 动画过度执行，默认执行
+const EnterActive = (el:Element, done:Function) => {
+    // console.log(el,'过度曲线 EnterActive');
+    setTimeout(() => {
+        done() // 3s后执行过度完成 EnterTo函数
+    }, 3000)
+    
+}
+
+const EnterTo = (el:Element) => {
+    // console.log(el,'动画进入之后 EnterTo');
+    
+}
+const EnterCancel = (el:Element) => {
+    console.log(el,'动画进过度效果 被打断时 EnterCancel');
+}
+
+// 离开
+
+// el DOM 节点
+const LeaveFrom = (el:Element) => {
+    // console.log(el, '动画离开之前LeaveFrom');
+    
+}
+// done 动画过度执行，默认执行
+const LeaveActive = (el:Element, done:Function) => {
+    // console.log(el,'过度曲线 LeaveActive');
+    // setTimeout(() => {
+    //     done() // 3s后执行过度完成 EnterTo函数
+    // }, 3000)
+    done()
+    
+}
+
+const LeaveTo = (el:Element) => {
+    // console.log(el,'动画离开之后 LeaveTo');
+    
+}
+const LeaveCancel = (el:Element) => {
+    console.log(el,'动画离开过度效果 被打断时------');
+}
 
 </script>
 <style scoped lang="scss">
@@ -95,4 +157,7 @@ const flag = ref<boolean>(true)
     width: 0;
     height: 0;
 }
+
+
+
 </style>
