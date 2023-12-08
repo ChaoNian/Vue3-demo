@@ -3,7 +3,7 @@
       <button @click="flag = !flag">switch</button>
       <!-- 用法1  name属性定义class-->
       <!-- <transition name="fade">
-        <div v-if="flag" class="box"></div>
+        <div v-if="flag" class="box">name属性定义class</div>
       </transition> -->
       <!-- 用法2  自定义类名 -->
       <!-- <transition 
@@ -13,18 +13,19 @@
         leave-from-class="aa-leave-from"
         leave-active-class="aa-leave-active"
         leave-to-class="aa-leave-to">
-        <div v-if="flag" class="box"></div>
+        <div v-if="flag" class="box">自定义类名</div>
     </transition> -->
-    <!-- 结合第三方类库 animate.css 来使用 -->
-    <!-- duration: 动画时长,值有一个值或对象：number｜{enter:number, leave:number} -->
-      <!-- <transition 
-       :duration="1000"
+
+    <!-- 用法3 结合第三方类库 animate.css 来使用https://animate.style/ -->
+     <!--duration: 动画时长,值有一个值或对象：number｜{enter:number, leave:number} -->
+      <transition 
+        :duration="1000"
         enter-active-class="animate__animated animate__flipInX"
         leave-active-class="animate__animated animate__fadeOutDown">
-        <div v-if="flag" class="box"></div> 
-      </transition> -->
-
-      <!-- transition 8个 生命周期 -->
+        <div v-if="flag" class="box">结合第三方类库 animate.css</div> 
+      </transition>
+      <br>
+      <!-- 用法4 transition 8个 生命周期 -->
       <!-- <transition 
         @before-enter="EnterFrom"
         @enter="EnterActive"
@@ -34,14 +35,36 @@
         @leave="LeaveActive"
         @after-leave="LeaveTo"
         @leave-cancelled="LeaveCancel" >
-        <div v-if="flag" class="box"></div> 
+        <div v-if="flag" class="box">8个 生命周期</div> 
       </transition> -->
+
+      <!-- 用法5 结合 gsap动画库 实现动画-->
      <transition 
         @before-enter="EnterFrom"
         @enter="EnterActive"
       
         @leave="Leave" >
-        <div v-if="flag" class="box"></div> 
+        <div v-if="flag" class="box">gsap动画库</div> 
+      </transition>
+
+
+
+      <!-- 用法6 transition 属性appear ,设置初始节点过度-就是页面加载完成就开始动画对象的三个状态 -->
+      <!-- <br>
+      <transition
+      appear-active-class="ap-active"
+      appear-from-class="ap-from"
+      appear-to-class="ap-to">
+      <div v-if="flag" class="box">appear</div> 
+      </transition> -->
+      <br>
+      <!-- 结合animate.css使用 -->
+      <transition
+      appear-active-class="animate__animated animate__backInDown"
+      appear-to-class="animate__animated animate__backInRight"
+      appear-from-class="animate__animated animate__backInRight"
+      appear>
+      <div v-if="flag" class="box">appear  animate.css</div> 
       </transition>
 
    </div>
@@ -50,7 +73,7 @@
 </template>
 <script setup lang='ts'>
 import{ref} from 'vue'
-// import 'animate.css'
+import 'animate.css'
 import gsap from 'gsap'
 
 const flag = ref<boolean>(true)
@@ -168,6 +191,7 @@ const Leave  = (el:Element, done:gsap.Callback) => {
     height: 200px;
     transform: scale(2); // 放大2倍
 }
+
 .aa-leave-from {
     width: 200px;
     height: 200px;
@@ -182,5 +206,17 @@ const Leave  = (el:Element, done:gsap.Callback) => {
 }
 
 
+// appear
 
+.ap-from {
+    width: 0;
+    height: 0;
+}
+.ap-active {
+    transition: all 1.5s ease;
+}
+.ap-to {
+    width: 200px;
+    height: 200px;
+}
 </style>
