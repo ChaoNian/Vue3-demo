@@ -53,8 +53,11 @@ const router = createRouter({
       name: 'Transition',
       component: () => import('../views/transition.vue')
     },
-    
-    
+    {
+      path: '/TransitionGroup',
+      name: 'TransitionGroup',
+      component:() => import('../views/transition-group.vue')
+    }
   ]
 })
 

@@ -30,7 +30,7 @@ provide(/*注入名 */ myInjectionKey, count)
     <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
     <div @click="count++">provide 注入 点击 count :{{ count }}   在‘默认的插槽出口’tab 看效果</div>
     <div class="wrapper">
-      <HelloWorld msg="You did it!" class="123" style="font-color: red"/>
+      <!-- <HelloWorld msg="You did it!" class="123" style="font-color: red"/> -->
 
       <nav>
         <RouterLink to="/" >Home</RouterLink>
@@ -42,10 +42,11 @@ provide(/*注入名 */ myInjectionKey, count)
         <RouterLink to="/SkeletonAndasyncCom">异步组件+骨架屏组件 </RouterLink>
         <RouterLink to="/DynamicsComponent">动态组件 </RouterLink>
         <RouterLink to="/Transition">transition动画 </RouterLink>
+        <RouterLink to="/TransitionGroup">transition-group</RouterLink>
       </nav>
     </div>
   </header>
-  <hr>
+  <br>
   <div class="yuki-test">测试全局样式配置DEM 样式架构
     <div class="yuki-test__inner">wew </div>
     <div class="yuki-test--success">sdsd</div>
