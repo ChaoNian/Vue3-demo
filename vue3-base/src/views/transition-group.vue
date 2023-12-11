@@ -14,12 +14,19 @@
             <div class="item" :key="item" v-for="item in list">{{ item }}</div>
         </transition-group>
     </div>
-
  </div>
+
+
+
+ <!-- 列表过度 -->
+ <hr>
+   <h2>列表的移动过度示例</h2>
+ <TranGroupList></TranGroupList>
 
 </template>
 <script setup lang='ts'>
 import {reactive, ref} from 'vue'
+import TranGroupList from './transition-group-list.vue';
 import 'animate.css'
 const list = reactive<number[]>([1,2,3,4,5])
 const add = () => {

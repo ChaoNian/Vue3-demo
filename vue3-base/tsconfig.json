@@ -5,6 +5,7 @@
     "target": "es2017",
     "strict": true,
     "noImplicitAny": true,
+    "esModuleInterop": true,
     "allowImportingTsExtensions": false,
     "types": [
       "unplugin-vue-define-options/macros-global"
