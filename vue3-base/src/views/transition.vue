@@ -1,10 +1,12 @@
 <template>
    <div class="content">
-      <button @click="flag = !flag">switch</button>
+    <br>
+      <button @click="flag = !flag">{{flag ? '隐藏':'显示' }}</button>
       <!-- 用法1  name属性定义class-->
       <!-- <transition name="fade">
-        <div v-if="flag" class="box">name属性定义class</div>
-      </transition> -->
+        <div v-if="flag" class="box font-12"></div>
+      </transition>
+      <br> -->
       <!-- 用法2  自定义类名 -->
       <!-- <transition 
         enter-from-class="aa-enter-from"
@@ -22,7 +24,7 @@
         :duration="1000"
         enter-active-class="animate__animated animate__flipInX"
         leave-active-class="animate__animated animate__fadeOutDown">
-        <div v-if="flag" class="box">结合第三方类库 animate.css</div> 
+        <div v-if="flag" class="box font-12">结合第三方类库 animate.css</div> 
       </transition>
       <br>
       <!-- 用法4 transition 8个 生命周期 -->
@@ -39,13 +41,13 @@
       </transition> -->
 
       <!-- 用法5 结合 gsap动画库 实现动画-->
-     <transition 
+     <!-- <transition 
         @before-enter="EnterFrom"
         @enter="EnterActive"
       
         @leave="Leave" >
-        <div v-if="flag" class="box">gsap动画库</div> 
-      </transition>
+        <div v-if="flag" class="box font-12">gsap动画库</div> 
+      </transition> -->
 
 
 
@@ -59,16 +61,15 @@
       </transition> -->
       <br>
       <!-- 结合animate.css使用 -->
-      <transition
+      <!-- <transition
       appear-active-class="animate__animated animate__backInDown"
       appear-to-class="animate__animated animate__backInRight"
       appear-from-class="animate__animated animate__backInRight"
       appear>
-      <div v-if="flag" class="box">appear  animate.css</div> 
-      </transition>
+      <div v-if="flag" class="box font-12">appear  animate.css</div> 
+      </transition> -->
 
    </div>
- <div></div>
 
 </template>
 <script setup lang='ts'>
@@ -148,6 +149,9 @@ const Leave  = (el:Element, done:gsap.Callback) => {
     height: 200px;
     background-color: red;
 }
+.font-12 {
+    font-size: 12px;
+}
 // 用法1 
 .fade-enter-from { // 进入 从XX 开始
     width: 0;
@@ -160,7 +164,7 @@ const Leave  = (el:Element, done:gsap.Callback) => {
 .fade-enter-to { // 进入 到 XX 结束
     width: 200px;
     height: 200px;
-    transform: scale(2); // 放大2倍
+    transform: scale(1.2); // 放大1.2倍
 }
 
 .fade-leave-from { // 离开 从XX 开始

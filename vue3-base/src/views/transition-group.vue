@@ -19,15 +19,24 @@
 
 
  <!-- 列表过度 -->
+ <br>
  <hr>
    <h2>列表的移动过度示例</h2>
  <TranGroupList></TranGroupList>
 
+   <!-- 状态的过度（可以理解为数据过度） -->
+   <br>
+   <hr>
+   <h2>状态的过度（可以理解为数据过度）</h2>
+   <input type="number" step="20" v-model="num.current">
+   <div>{{ num.tweenedNumber.toFixed() }}</div>
 </template>
 <script setup lang='ts'>
-import {reactive, ref} from 'vue'
+import {reactive, ref, watch} from 'vue'
 import TranGroupList from './transition-group-list.vue';
 import 'animate.css'
+import gsap from 'gsap'
+
 const list = reactive<number[]>([1,2,3,4,5])
 const add = () => {
     list.push(list.length+1)
@@ -35,6 +44,18 @@ const add = () => {
 const pop = () => {
     list.pop()
 }
+
+ const num = reactive({
+    current: 0,
+    tweenedNumber:0
+ })
+
+ watch(() => num.current, (newVal) =>{
+    gsap.to(num, {
+        duration: 1,
+        tweenedNumber: newVal
+    })
+ })
 </script>
 <style scoped lang="scss">
 .wraps {
