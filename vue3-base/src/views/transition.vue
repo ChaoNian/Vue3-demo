@@ -20,34 +20,35 @@
 
     <!-- 用法3 结合第三方类库 animate.css 来使用https://animate.style/ -->
      <!--duration: 动画时长,值有一个值或对象：number｜{enter:number, leave:number} -->
-      <transition 
+      <!-- <transition 
         :duration="1000"
         enter-active-class="animate__animated animate__flipInX"
         leave-active-class="animate__animated animate__fadeOutDown">
         <div v-if="flag" class="box font-12">结合第三方类库 animate.css</div> 
-      </transition>
+      </transition> -->
       <br>
       <!-- 用法4 transition 8个 生命周期 -->
-      <!-- <transition 
-        @before-enter="EnterFrom"
-        @enter="EnterActive"
-        @after-enter="EnterTo"
-        @enter-cancelled="EnterCancel"
-        @before-leave="LeaveFrom"
-        @leave="LeaveActive"
-        @after-leave="LeaveTo"
-        @leave-cancelled="LeaveCancel" >
-        <div v-if="flag" class="box">8个 生命周期</div> 
-      </transition> -->
+      <!-- <div style="height: 300px;">
+        <transition 
+            @before-enter="EnterFrom"
+            @enter="EnterActive"
+            @after-enter="EnterTo"
+            @enter-cancelled="EnterCancel"
+            @before-leave="LeaveFrom"
+            @leave="LeaveActive"
+            @after-leave="LeaveTo"
+            @leave-cancelled="LeaveCancel" >
+            <div v-show="flag" class="box">8个 生命周期</div> 
+        </transition>
+        </div> -->
 
       <!-- 用法5 结合 gsap动画库 实现动画-->
-     <!-- <transition 
+     <transition 
         @before-enter="EnterFrom"
         @enter="EnterActive"
-      
         @leave="Leave" >
         <div v-if="flag" class="box font-12">gsap动画库</div> 
-      </transition> -->
+      </transition>
 
 
 
@@ -81,7 +82,7 @@ const flag = ref<boolean>(true)
 
 // el DOM 节点
 const EnterFrom = (el:Element) => {
-    // console.log(el, '动画进入之前EnterFrom');
+    // console.log('动画进入之前EnterFrom');
     gsap.set(el, {
         width:0,
         height:0
@@ -90,7 +91,7 @@ const EnterFrom = (el:Element) => {
 }
 // done 动画过度执行，默认执行
 const EnterActive = (el:Element, done: gsap.Callback) => {
-    // console.log(el,'过度曲线 EnterActive');
+    // console.log('进入时 EnterActive');
     // setTimeout(() => {
     //     done() // 3s后执行过度完成 EnterTo函数
     // }, 3000)
@@ -102,23 +103,23 @@ const EnterActive = (el:Element, done: gsap.Callback) => {
 }
 
 // const EnterTo = (el:Element) => {
-//     // console.log(el,'动画进入之后 EnterTo');
+//     console.log('动画进入之后 EnterTo');
     
 // }
 // const EnterCancel = (el:Element) => {
-//     console.log(el,'动画进过度效果 被打断时 EnterCancel');
+//     console.log('动画进过度效果 被打断时 EnterCancel');
 // }
 
 // 离开
 
 // el DOM 节点
 // const LeaveFrom = (el:Element) => {
-//     // console.log(el, '动画离开之前LeaveFrom');
+//     console.log('动画离开之前LeaveFrom');
     
 // }
 // done 动画过度执行，默认执行
-// const LeaveActive = (el:Element, done:Function) => {
-//     // console.log(el,'过度曲线 LeaveActive');
+// const LeaveActive = (el:Element, done: Function) => {
+//     console.log('离开时 LeaveActive');
 //     // setTimeout(() => {
 //     //     done() // 3s后执行过度完成 EnterTo函数
 //     // }, 3000)
@@ -127,6 +128,7 @@ const EnterActive = (el:Element, done: gsap.Callback) => {
 // }
 
 const Leave  = (el:Element, done:gsap.Callback) => {
+    // console.log('离开动画 Leave');
     gsap.to(el, {
         width: 0,
         height: 0,
@@ -135,11 +137,11 @@ const Leave  = (el:Element, done:gsap.Callback) => {
 }
 
 // const LeaveTo = (el:Element) => {
-//     // console.log(el,'动画离开之后 LeaveTo');
+//     console.log('动画离开之后 LeaveTo');
     
 // }
 // const LeaveCancel = (el:Element) => {
-//     console.log(el,'动画离开过度效果 被打断时------');
+//     console.log('动画离开过度效果 被打断时------');
 // }
 
 </script>

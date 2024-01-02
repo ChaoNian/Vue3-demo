@@ -6,7 +6,7 @@
  2、 过度模式下不可用， 因为我们不再相互切换特有的元素
  3、内部元素 总是需要提供一个唯一的 key attribute值
  4、CSS过度的类型将会应用在内部的元素中，而不是这个组/容器本身-->
- <div class="contet">
+ <!-- <div class="contet">
      <button @click="add">ADD</button>
      <button @click="pop">POP</button>
     <div  class="wraps">
@@ -14,22 +14,21 @@
             <div class="item" :key="item" v-for="item in list">{{ item }}</div>
         </transition-group>
     </div>
- </div>
+ </div> -->
 
 
 
  <!-- 列表过度 -->
- <br>
- <hr>
-   <h2>列表的移动过度示例</h2>
- <TranGroupList></TranGroupList>
+ <!-- <br>
+   <h2>列表的移动过渡示例</h2>
+ <TranGroupList></TranGroupList> -->
 
    <!-- 状态的过度（可以理解为数据过度） -->
    <br>
-   <hr>
-   <h2>状态的过度（可以理解为数据过度）</h2>
+   <!-- <h2>状态的过渡（可以理解为数据过渡）</h2> -->
    <input type="number" step="20" v-model="num.current">
-   <div>{{ num.tweenedNumber.toFixed() }}</div>
+   <div style="font-size: 30px; margin-left: 20px;">{{ num.tweenedNumber.toFixed() }}</div>
+
 </template>
 <script setup lang='ts'>
 import {reactive, ref, watch} from 'vue'
