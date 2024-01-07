@@ -57,6 +57,11 @@ const router = createRouter({
       path: '/TransitionGroup',
       name: 'TransitionGroup',
       component:() => import('../views/transition-group.vue')
+    },
+    {
+      path: '/ComponentsEventBus',
+      name: 'ComponentsEventBus',
+      component:() => import('../views/componentsEventBus/index.vue')
     }
   ]
 })

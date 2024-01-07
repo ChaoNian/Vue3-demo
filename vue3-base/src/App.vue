@@ -43,6 +43,7 @@ provide(/*注入名 */ myInjectionKey, count)
         <RouterLink to="/DynamicsComponent">动态组件 </RouterLink>
         <RouterLink to="/Transition">transition动画 </RouterLink>
         <RouterLink to="/TransitionGroup">transition-group</RouterLink>
+        <RouterLink to="/ComponentsEventBus">组件通信</RouterLink>
       </nav>
     </div>
   </header>
