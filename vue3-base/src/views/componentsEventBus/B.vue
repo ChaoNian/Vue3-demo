@@ -1,3 +1,4 @@
+
 <template>
     <div class="box">子B 组件:{{ Flag }}</div>
 </template>
@@ -20,15 +21,19 @@ const event = (eventtype, str)=> {
  console.log(eventtype, str, 'str*');
 }
 // on 监听函数
+// @ts-ignore
 instance?.proxy?.$Bus.on('mitt-click', (str)=> {
  console.log(str, 'str');
 })
+// @ts-ignore
 instance?.proxy?.$Bus.on('*', event)
 // 取消监听 off(取消指定的mitt事件， 取消的函数)
+// @ts-ignore
 instance?.proxy?.$Bus.off('mitt-click', event)
 
 
 // 删除全部mitt事件
+// @ts-ignore
 instance?.proxy?.$Bus.all.clear()
 </script>
 <style scoped>
