@@ -7,6 +7,10 @@ import App from './App.vue'
 import router from './router'
 // import TodoDeleteButton from './components/icons'
 
+// 事件Bus 库  mitt  npm i mitt -S
+ import mitt from 'mitt'
+const Mit = mitt()
+
 
 /**
  * 大多数真实的应用都是由一棵嵌套的、可重用的组件树组成的
@@ -19,6 +23,17 @@ import router from './router'
 
 // 我们传入 createApp 的对象实际上是一个组件（App 是单文件组件），每个应用都需要一个“根组件”，其他组件将作为其子组件。
 const app = createApp(App)
+
+
+// TypeScript注册
+// 由于必须要扩展ComponentCustomProperties类型才能获得类型提示
+declare module 'vue' {
+   export interface ComponentCustomProperties {
+      // 扩展 $Bus ，则获取所有Mitt类型 使得在组件使用中有提示
+      $Bus: typeof Mit
+   }
+}
+app.config.globalProperties.$Bus = Mit
 
 
 
