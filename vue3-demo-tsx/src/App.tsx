@@ -50,8 +50,7 @@ const A = (_, {slots}) => (
 interface Props {
     name: string
 }
-import { log } from 'console'
-import {defineComponent, ref} from 'vue'
+// import {defineComponent, ref} from 'vue' // 使用 unplugin-auto-import/vite 后，不用import来引入
 export default defineComponent({
     props: {
         name: String

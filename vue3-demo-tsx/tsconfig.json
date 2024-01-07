@@ -1,5 +1,22 @@
 {
   "files": [],
+  "compilerOptions": {
+    "module": "nodenext",
+    "target": "es2017",
+    "strict": true,
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": false,
+    "types": [
+      "unplugin-vue-define-options/macros-global"
+    ],
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ]
+    }
+  },
+  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.v"],
   "references": [
     {
       "path": "./tsconfig.node.json"

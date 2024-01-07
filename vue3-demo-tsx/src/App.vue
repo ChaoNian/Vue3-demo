@@ -3,8 +3,9 @@
 import yukiTsx from './App'
 const getName = (item:any) =>{
   console.log(item, '组件传出来的事件');
-  
+  flag.value = !flag.value
 }
+let flag = ref<boolean>(false)
 </script>
 
 <template>
@@ -14,6 +15,7 @@ const getName = (item:any) =>{
 
   <RouterView />
   <hr>
+  <div>{{ flag }}</div>
   <yukiTsx name="yuki" @on-click="getName"></yukiTsx>
 </template>
 
@@ -28,3 +30,4 @@ const getName = (item:any) =>{
   }
 }
 </style>
+github.com/antfu/unplugin-auto-import
