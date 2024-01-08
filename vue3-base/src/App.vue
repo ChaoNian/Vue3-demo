@@ -44,6 +44,7 @@ provide(/*注入名 */ myInjectionKey, count)
         <RouterLink to="/Transition">transition动画 </RouterLink>
         <RouterLink to="/TransitionGroup">transition-group</RouterLink>
         <RouterLink to="/ComponentsEventBus">组件通信</RouterLink>
+        <RouterLink to="/Directive">自定义指令directive</RouterLink>
       </nav>
     </div>
   </header>

@@ -62,6 +62,11 @@ const router = createRouter({
       path: '/ComponentsEventBus',
       name: 'ComponentsEventBus',
       component:() => import('../views/componentsEventBus/index.vue')
+    },
+    {
+      path: '/Directive',
+      name: 'Directive',
+      component:() => import('../views/directive/index.vue')
     }
   ]
 })
