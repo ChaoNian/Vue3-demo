@@ -1,14 +1,16 @@
 {
   "files": [],
   "compilerOptions": {
-    "module": "nodenext",
-    "target": "es2017",
+    "module" : "system",
+    "moduleResolution": "Node",
+    "target": "ES2022",
     "strict": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
     "allowImportingTsExtensions": false,
     "types": [
-      "unplugin-vue-define-options/macros-global"
+      "unplugin-vue-define-options/macros-global",
+      "vite/client"
     ],
     "paths": {
       "@/*": [

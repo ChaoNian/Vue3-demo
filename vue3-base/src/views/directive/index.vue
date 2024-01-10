@@ -15,8 +15,10 @@
 
 
    <!-- 案例 浮窗拖拽 -->
-   <drag></drag>
+   <!-- <drag></drag> -->
 
+   <!-- 图片懒加载 -->
+   <imgLazy></imgLazy>
   </div>
 </template>
 
@@ -25,6 +27,7 @@ import {ref, Directive} from 'vue'
 import A from './A.vue'
 import btn from './btnAuth.vue'
 import drag from './drag.vue'
+import imgLazy from './imgLazy.vue'
 let flag = ref<boolean>(false)
 /**
  *  created 元素初始化的时候
