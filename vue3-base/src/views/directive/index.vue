@@ -1,6 +1,7 @@
 <template>
   <div>
    自定义指令
+   <hr>
    <!-- <button @click="flag = !flag">切换</button> -->
    <!-- v-move:参数.修饰符 -->
    <!-- <A v-if="flag" v-move:aa.yuki="{background: 'red'}"></A> v-if="flag" 触发beforeUpdate update-->
@@ -10,9 +11,12 @@
     <!-- -----end------ -->
 
    <!-- 自定义指令 按钮权限 -->
-   <btn></btn>
+   <!-- <btn></btn> -->
 
-   
+
+   <!-- 案例 浮窗拖拽 -->
+   <drag></drag>
+
   </div>
 </template>
 
@@ -20,7 +24,7 @@
 import {ref, Directive} from 'vue'
 import A from './A.vue'
 import btn from './btnAuth.vue'
-
+import drag from './drag.vue'
 let flag = ref<boolean>(false)
 /**
  *  created 元素初始化的时候
