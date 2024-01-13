@@ -67,6 +67,11 @@ const router = createRouter({
       path: '/Directive',
       name: 'Directive',
       component:() => import('../views/directive/index.vue')
+    },
+    {
+      path: '/Hooks',
+      name: 'Hooks',
+      component:() => import('../views/hooks/index.vue')
     }
   ]
 })

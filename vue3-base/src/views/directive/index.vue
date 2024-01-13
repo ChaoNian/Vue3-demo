@@ -18,7 +18,13 @@
    <!-- <drag></drag> -->
 
    <!-- 图片懒加载 -->
-   <imgLazy></imgLazy>
+   <!-- <imgLazy></imgLazy> -->
+
+
+   <div class="resize">
+    宽高可拖拽
+
+   </div>
   </div>
 </template>
 
@@ -66,5 +72,12 @@ const vMove: Directive = {
 </script>
 
 <style scoped>
-
+.resize {
+  border: 1px solid #d2d2d2;
+  width: 200px;
+  height: 200px;
+  resize: both; 
+  /* css 实现拖拽 */
+  overflow: hidden;
+}
 </style>
