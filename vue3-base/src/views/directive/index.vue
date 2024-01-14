@@ -21,7 +21,7 @@
    <!-- <imgLazy></imgLazy> -->
 
 
-   <div class="resize">
+   <div class="resize" v-resize="resieze">
     宽高可拖拽
 
    </div>
@@ -29,12 +29,29 @@
 </template>
 
 <script setup lang='ts'>
-import {ref, Directive} from 'vue'
+import {ref, Directive, onMounted} from 'vue'
 import A from './A.vue'
 import btn from './btnAuth.vue'
 import drag from './drag.vue'
 import imgLazy from './imgLazy.vue'
 let flag = ref<boolean>(false)
+
+// 自己发布的自定义hook ➕ 自定义指令 的库 使用
+// 下面 是 hook方式使用  指令方式在main。ts使用
+// import useResize from 'v-resize-yuki' 
+// onMounted(() => {
+//   useResize(document.querySelector('.resize') as HTMLElement, (e: any) => {
+//     console.log(e, 'wretrhjhg');
+    
+//   })
+// })
+
+// 全局指令使用
+const resieze = (e:any) => {
+console.log(e, 'resieze');
+
+}
+
 /**
  *  created 元素初始化的时候
     beforeMount 指令绑定到元素后调用 只调用一次

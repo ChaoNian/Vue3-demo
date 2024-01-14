@@ -18,6 +18,7 @@
     "pinia": "^2.1.6",
     "sass": "^1.69.4",
     "unplugin-vue-define-options": "^1.3.18",
+    "v-resize-yuki": "^0.0.1",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
   },

@@ -11,7 +11,7 @@ import router from './router'
  import mitt from 'mitt'
 const Mit = mitt()
 
-
+import useResize from 'v-resize-yuki'
 /**
  * 大多数真实的应用都是由一棵嵌套的、可重用的组件树组成的
  */
@@ -53,7 +53,7 @@ app.config.globalProperties.$Bus = Mit
 
 app.use(createPinia())
 app.use(router)
-
+app.use(useResize)
 /**
  *  应用实例必须在调用了 .mount() 方法后才会渲染出来。该方法接收一个“容器”参数，
     可以是一个实际的 DOM 元素或是一个 CSS 选择器字符串；
