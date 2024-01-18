@@ -72,6 +72,11 @@ const router = createRouter({
       path: '/Hooks',
       name: 'Hooks',
       component:() => import('../views/hooks/index.vue')
+    },
+    {
+      path: '/GlobalProperties',
+      name: 'GlobalProperties',
+      component: () => import('../views/GlobalProperties.vue')
     }
   ]
 })

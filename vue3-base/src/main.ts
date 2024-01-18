@@ -54,6 +54,31 @@ app.config.globalProperties.$Bus = Mit
 app.use(createPinia())
 app.use(router)
 app.use(useResize)
+
+
+
+// 全局变量 和 全局函数
+
+app.config.globalProperties.$dev = '来自main'
+// vue3 里没有filter 这里自己定义一个
+app.config.globalProperties.$filters = {
+   format<T>(str:T) { // 泛型 T
+      return `filter-${str}`
+   }
+}
+// 声明文件
+type Filter = {
+   format<T>(str:T):string
+}
+declare module 'vue' {
+   export interface ComponentCustomProperties {
+      $filters: Filter,
+      $dev: string
+   }
+}
+
+
+
 /**
  *  应用实例必须在调用了 .mount() 方法后才会渲染出来。该方法接收一个“容器”参数，
     可以是一个实际的 DOM 元素或是一个 CSS 选择器字符串；
