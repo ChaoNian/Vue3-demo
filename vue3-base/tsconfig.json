@@ -10,7 +10,8 @@
     "allowImportingTsExtensions": false,
     "types": [
       "unplugin-vue-define-options/macros-global",
-      "vite/client"
+      "vite/client",
+      "element-plus/global"
     ],
     "paths": {
       "@/*": [

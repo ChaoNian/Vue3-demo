@@ -2,6 +2,7 @@ import './assets/main.css'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
+import Loading from './components/Loading'
 
 import App from './App.vue'
 import router from './router'
@@ -55,6 +56,9 @@ app.use(createPinia())
 app.use(router)
 app.use(useResize)
 
+// loading 插件注册全局使用。 只要是Vue插件，必须使用这个app.use()方法 来注册
+app.use(Loading)
+
 
 
 // 全局变量 和 全局函数
@@ -78,6 +82,17 @@ declare module 'vue' {
 }
 
 
+type Lod = {
+   show: () => void,
+   hide: () => void
+}
+//编写ts loading 声明文件放置报错 和 智能提示
+declare module '@vue/runtime-core' {
+   export interface ComponentCustomProperties {
+       yuki_loading: Lod
+   }
+
+}
 
 /**
  *  应用实例必须在调用了 .mount() 方法后才会渲染出来。该方法接收一个“容器”参数，

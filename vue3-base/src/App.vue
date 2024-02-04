@@ -46,7 +46,7 @@ provide(/*注入名 */ myInjectionKey, count)
         <RouterLink to="/ComponentsEventBus">组件通信</RouterLink>
         <RouterLink to="/Directive">自定义指令directive</RouterLink>
         <RouterLink to="/Hooks">hooks</RouterLink>
-        <RouterLink to="/GlobalProperties">全局变量和全局函数</RouterLink>
+        <RouterLink to="/GlobalProperties">全局变量、全局函数、全局插件</RouterLink>
       </nav>
     </div>
   </header>
